@@ -2,8 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" assignedExecutableTargets="true" buildAllGenerated="true">
     <generated>
-      <config projectName="102_Binary_Tree_Level_Order_Traversal" targetName="102_Binary_Tree_Level_Order_Traversal" />
-      <config projectName="107_Binary_Tree_Level_Order_Traversal_II" targetName="107_Binary_Tree_Level_Order_Traversal_II" />
+      <config projectName="114_Flatten_Binary_Tree_to_Linked_List" targetName="114_Flatten_Binary_Tree_to_Linked_List" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="false" GENERATION_PASS_SYSTEM_ENVIRONMENT="true">
@@ -12,8 +11,8 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="daeb364f-0051-4b9f-ad72-f6fd97b3fffb" name="Default" comment="" />
-    <ignored path="102_Binary Tree Level Order Traversal.iws" />
+    <list default="true" id="112d760e-40e5-4092-b253-a167dd11244d" name="Default" comment="" />
+    <ignored path="114_Flatten Binary Tree to Linked List.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,18 +26,16 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="102_Binary Tree Level Order Traversal" />
+    <favorites_list name="114_Flatten Binary Tree to Linked List" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.cpp">
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,24 +87,7 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="107_Binary Tree Level Order Traversal II" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="107_Binary Tree Level Order Traversal II" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="107_Binary Tree Level Order Traversal II" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -117,11 +97,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager" selected="Application.Build All">
-    <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="102_Binary_Tree_Level_Order_Traversal" TARGET_NAME="102_Binary_Tree_Level_Order_Traversal" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
+    <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="114_Flatten_Binary_Tree_to_Linked_List" TARGET_NAME="114_Flatten_Binary_Tree_to_Linked_List" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="102_Binary_Tree_Level_Order_Traversal" TARGET_NAME="102_Binary_Tree_Level_Order_Traversal" CONFIG_NAME="Debug">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="114_Flatten_Binary_Tree_to_Linked_List" TARGET_NAME="114_Flatten_Binary_Tree_to_Linked_List" CONFIG_NAME="Debug">
       <envs />
       <method />
     </configuration>
@@ -139,7 +119,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="102_Binary Tree Level Order Traversal" />
+      <module name="114_Flatten Binary Tree to Linked List" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -154,7 +134,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="102_Binary Tree Level Order Traversal" />
+      <module name="114_Flatten Binary Tree to Linked List" />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
@@ -182,7 +162,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="102_Binary Tree Level Order Traversal" />
+      <module name="114_Flatten Binary Tree to Linked List" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -201,7 +181,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="102_Binary Tree Level Order Traversal" />
+      <module name="114_Flatten Binary Tree to Linked List" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -220,7 +200,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="102_Binary Tree Level Order Traversal" />
+      <module name="114_Flatten Binary Tree to Linked List" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -241,7 +221,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="102_Binary Tree Level Order Traversal" />
+      <module name="114_Flatten Binary Tree to Linked List" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -263,7 +243,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="102_Binary Tree Level Order Traversal" />
+      <module name="114_Flatten Binary Tree to Linked List" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -278,22 +258,17 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="102_Binary_Tree_Level_Order_Traversal" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="102_Binary_Tree_Level_Order_Traversal" TARGET_NAME="102_Binary_Tree_Level_Order_Traversal" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="102_Binary_Tree_Level_Order_Traversal" RUN_TARGET_NAME="102_Binary_Tree_Level_Order_Traversal">
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="107_Binary_Tree_Level_Order_Traversal_II" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="107_Binary_Tree_Level_Order_Traversal_II" TARGET_NAME="107_Binary_Tree_Level_Order_Traversal_II" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="107_Binary_Tree_Level_Order_Traversal_II" RUN_TARGET_NAME="107_Binary_Tree_Level_Order_Traversal_II">
+    <configuration default="false" name="114_Flatten_Binary_Tree_to_Linked_List" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="114_Flatten_Binary_Tree_to_Linked_List" TARGET_NAME="114_Flatten_Binary_Tree_to_Linked_List" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="114_Flatten_Binary_Tree_to_Linked_List" RUN_TARGET_NAME="114_Flatten_Binary_Tree_to_Linked_List">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="107_Binary_Tree_Level_Order_Traversal_II" TARGET_NAME="107_Binary_Tree_Level_Order_Traversal_II" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="107_Binary_Tree_Level_Order_Traversal_II" RUN_TARGET_NAME="107_Binary_Tree_Level_Order_Traversal_II">
-      <envs />
-      <method />
-    </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Application.102_Binary_Tree_Level_Order_Traversal" />
-      <item index="1" class="java.lang.String" itemvalue="Application.107_Binary_Tree_Level_Order_Traversal_II" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Build All" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
+      <item index="1" class="java.lang.String" itemvalue="Application.114_Flatten_Binary_Tree_to_Linked_List" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -301,20 +276,18 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="daeb364f-0051-4b9f-ad72-f6fd97b3fffb" name="Default" comment="" />
-      <created>1478572169436</created>
+      <changelist id="112d760e-40e5-4092-b253-a167dd11244d" name="Default" comment="" />
+      <created>1478750075582</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1478572169436</updated>
-      <workItem from="1478572170955" duration="4763000" />
-      <workItem from="1478717350311" duration="821000" />
-      <workItem from="1478882340034" duration="15000" />
-      <workItem from="1478884310380" duration="85000" />
+      <updated>1478750075582</updated>
+      <workItem from="1478750077341" duration="1139000" />
+      <workItem from="1478795505026" duration="19000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5684000" />
+    <option name="totallyTimeSpent" value="1158000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="43" y="23" width="1237" height="777" extended-state="6" />
@@ -322,22 +295,21 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -352,18 +324,40 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="4" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <marker date="1478750492000" expanded="true" signature="94:208" ph="{...}" />
+            <marker date="1478750492000" expanded="true" signature="226:641" ph="{...}" />
+            <marker date="1478750492000" expanded="true" signature="269:639" ph="{...}" />
+            <marker date="1478750492000" expanded="true" signature="655:1056" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="28" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="46" selection-end-column="1" />
+          <folding>
+            <marker date="1478750492000" expanded="true" signature="94:208" ph="{...}" />
+            <marker date="1478750492000" expanded="true" signature="226:641" ph="{...}" />
+            <marker date="1478750492000" expanded="true" signature="269:639" ph="{...}" />
+            <marker date="1478750492000" expanded="true" signature="655:1056" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -372,40 +366,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/new">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>

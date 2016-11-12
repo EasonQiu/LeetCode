@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" assignedExecutableTargets="true" buildAllGenerated="true">
     <generated>
-      <config projectName="113_Path_Sum_II" targetName="113_Path_Sum_II" />
+      <config projectName="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal" targetName="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="false" GENERATION_PASS_SYSTEM_ENVIRONMENT="true">
@@ -11,8 +11,8 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75e59341-3684-40e7-ac64-60ef2514050c" name="Default" comment="" />
-    <ignored path="113_Path Sum II.iws" />
+    <list default="true" id="9cbcad1c-eaa9-43c8-abcb-32a8ec2db01f" name="Default" comment="" />
+    <ignored path="105_Construct Binary Tree from Preorder and Inorder Traversal.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +26,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="113_Path Sum II" />
+    <favorites_list name="105_Construct Binary Tree from Preorder and Inorder Traversal" />
   </component>
   <component name="FileEditorManager">
     <leaf>
@@ -44,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="317">
-              <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+              <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -109,20 +109,20 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager" selected="Application.Build All">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="113_Path_Sum_II" TARGET_NAME="113_Path_Sum_II" CONFIG_NAME="Debug">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal" TARGET_NAME="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal" CONFIG_NAME="Debug">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="113_Path_Sum_II" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="113_Path_Sum_II" TARGET_NAME="113_Path_Sum_II" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="113_Path_Sum_II" RUN_TARGET_NAME="113_Path_Sum_II">
+    <configuration default="false" name="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal" TARGET_NAME="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal" RUN_TARGET_NAME="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="113_Path_Sum_II" TARGET_NAME="113_Path_Sum_II" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="113_Path_Sum_II" RUN_TARGET_NAME="113_Path_Sum_II">
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal" TARGET_NAME="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal" RUN_TARGET_NAME="105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal">
       <envs />
       <method />
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Application.113_Path_Sum_II" />
+      <item index="0" class="java.lang.String" itemvalue="Application.105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal" />
       <item index="1" class="java.lang.String" itemvalue="Application.Build All" />
     </list>
   </component>
@@ -131,17 +131,17 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="75e59341-3684-40e7-ac64-60ef2514050c" name="Default" comment="" />
-      <created>1478731118713</created>
+      <changelist id="9cbcad1c-eaa9-43c8-abcb-32a8ec2db01f" name="Default" comment="" />
+      <created>1478878351456</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1478731118713</updated>
-      <workItem from="1478731120511" duration="1648000" />
+      <updated>1478878351456</updated>
+      <workItem from="1478878354687" duration="1707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1648000" />
+    <option name="totallyTimeSpent" value="1707000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="43" y="23" width="1237" height="777" extended-state="6" />
@@ -180,7 +180,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>45</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -196,7 +202,7 @@
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
-          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

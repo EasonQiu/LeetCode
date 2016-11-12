@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <stack>
 
 using namespace std;
 
@@ -14,7 +14,19 @@ struct TreeNode {
 class Solution {
 public:
     int kthSmallest(TreeNode* root, int k) {
-        return dfs(root, )
+        if(!root || k <= 0) return INT_MIN;
+        stack<TreeNode*> my_stack;
+        while(root || !my_stack.empty()){
+            if(root){
+                my_stack.push(root);
+                root = root->left;
+            } else {
+                root = my_stack.top();  my_stack.pop();
+                if(--k == 0) return root->val;
+                root = root->right;
+            }
+        }
+        return INT_MIN;
     }
 };
 

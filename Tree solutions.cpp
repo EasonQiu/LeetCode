@@ -337,3 +337,46 @@ public:
             return false;
     }
 };
+
+// 230_Kth Smallest Element in a BST
+class Solution { // dfs, non-recursion
+public:
+    /*Any tree traversal could be divided into two parts: traverse down and traverse up.
+    Here, for any node, we push it to stack, and go to its left child. This is traverse down.
+    When the node is null, we begin to traverse up by getting the top node from the root.
+    */
+    int kthSmallest(TreeNode* root, int k) {
+        if(!root || k <= 0) return INT_MIN;
+        stack<TreeNode*> my_stack;
+        while(root || !my_stack.empty()){
+            if(root){
+                my_stack.push(root);
+                root = root->left;
+            } else {
+                root = my_stack.top();  my_stack.pop();
+                if(--k == 0) return root->val;
+                root = root->right;
+            }
+        }
+        return INT_MIN;
+    }
+};
+
+// 108_Convert Sorted Array to Binary Search Tree
+class Solution {
+public:
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        if (nums.size() == 0)  return NULL;
+        return binaryIter(nums, 0, nums.size()-1);
+    }
+    
+    TreeNode* binaryIter(const vector<int>& nums, int left, int right){
+        int mid = (left + right) / 2;
+        TreeNode* node = new TreeNode(nums[mid]);
+        if (left < mid) node->left = binaryIter(nums, left, mid-1);
+        else node->left = NULL;
+        if (mid < right) node->right = binaryIter(nums, mid+1, right);
+        else node->right = NULL;
+        return node;
+    }
+};
