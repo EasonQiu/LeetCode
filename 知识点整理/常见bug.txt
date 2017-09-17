@@ -1,0 +1,181 @@
+Facebook考graph的知识好多
+
+写需要先排序的程序时，忘记一开始写sort
+
+变量忘记初始化
+
+自定义class, struct后面忘记加;号!!!
+
+写二分搜索的时候，注意while内外检测target满足的条件基本上是一样的，外层多一个检查left == 0！
+写条件时小心大于小于号方向！
+	eg. 34题搜索target的开始和结束的位置
+
+不要把所有return都写在if或while里面，有些编译器会报错，最外层尽量写一个return
+不要忘记写return!!!!!
+
+变量名容易打错，比如nums少加s！
+
+自定义sort的时候，如果用struct或class，则sort STL中要写()。写function比较函数似乎行不通
+	eg. sort(nums.begin(), nums.end(), Comparator());
+
+写递归的base case的时候忘记加return
+
+return和数组相关的数据时，要小心是返回value还是index
+
+时间复杂度如果为 n + n/2 + n/4 + n/8 + ... = 2n(partition只走其中一半的复杂度)
+
+写代码不要跳着写，不然容易忘记写某些语句
+
+下标边界条件>=还是>小心
+
+任何int类型都要考虑正负零，正负无穷大的可能性!!
+int计算的时候要注意可能会overflow，INT_MAX = 2^31 - 1 = 2.1 * 10^9!!
+改用long避免越界的时候，注意原先的int乘数也应该先转换成long，如long j = (long)i * (long)i，否则无法获得正确值!!
+	eg. 负数取反，平方都可能越界
+
+注意int和float或double比较的时候有可能会出问题，尤其是int无限大的时候，比较两者大小最好相同类型
+一般int - double或int < double也可以
+
+求解min或max值得时候初始化要注意！
+
+写partition函数的时候右侧边界条件应该是right - 1
+写merge函数的时候忘记先把nums的数据存到temp中去
+
+class的variable中有下划线容易在程序中忘记加，list_
+
+注意function里的所有变量是否需要从外界传进来
+
+莫名其妙的错误！自定义的class插入时要小心
+// map[key] = Node(value, 1, --frequent[1].end());
+map.insert(make_pair(key, Node(value, 1, --frequent[1].end())));
+
+不管有无必要，拿到题目先把corner case给return了!!!!
+
+string的规定长度初始化后面要加char，不能省略
+string str(digits.size(), 'a');
+
+queue没有top只有front!!
+
+算数字符串以+-=为分割进行处理，corner case是=后面直接又跟一个-号
+
+求解sum(nums[i..j]) = sum(nums[0..j]) - sum(nums[0..i - 1])
+
+inorder的后继是postorder的前继
+
+dfs搜索的时候，时刻关注是否会导致往回走，走过的地方要标记
+
+max(vec.size(), 5)不行，两个数类型都必须相同，max((int)vec.size(), 5)
+
+random number要去问是否他们是同样的chance
+
+stirng.find()的return value是int，npos有两种写法str.npos和string::npos
+
+三元表达式要注意是否要加括号，因为优先级不高
+
+sliding window 可以用的一条原则是如果当前subarray不能满足要求，则它的子集也一定不能满足要求
+sliding window在左边shrink的时候经常--dict[left++]应该--dict[s[left++]]!!!
+
+??自定义comparator中有自定义参数设置
+
+rotate matrix不管往哪边转，先转置，之后只要reverse一下就行了
+
+如果insert的时候只考虑一个node有点麻烦，则考虑前后两个node
+
+sort要的是一个function，pq要的是一个class
+
+bool cmp(int lhs, int rhs) {
+	return abs(lhs) < abs(rhs);
+}
+sort(count.begin(), count.end(), cmp);
+sort(count.begin(), count.end(), greater<int>());注意greater后面要加()
+sort(people.begin(), people.end(),[](pair<int,int> p1, pair<int,int> p2){
+        return p1.first > p2.first || (p1.first == p2.first && p1.second < p2.second);
+    });
+
+class pqCompare {
+public:
+	bool operator() (Task &lhs, Task &rhs) {
+		return lhs.exe > rhs.exe;
+	}
+};
+priority_queue<Task, vector<Task>, pqCompare> pq;
+priority_queue<int, vector<int>, greater<int> > pq;
+
+stream会把\n和\t都忽略掉
+
+string.find('\n', start_por); 参数顺序不要搞错！！   找不到返回string.npos或-1
+
+初始化二维数组 int dp[row][col] = {}; 注意row和col不能为0, 可以用nums.size()
+
+string的前插比后插要慢好多！估计string是一个vector<char>, insert要O(n)
+
+求range sum要考虑用到segment tree，一维数组node有两个children，二维数组node有四个children把一个平面分成4个子平面
+segment tree 一定要考虑empty的情况
+
+很多时候整除取余没法统一，要用(n - 1) / len
+
+如果想sort index可以自己写排序程序，或者新建一个vector<pair<int, int> > 将value和index绑定
+
+可以写string words[4] = {"ab", "cd"};
+
+stack,queue没有什么clear函数，成员函数量很少
+
+BST可以用logn找到第一个大于某个target的node值，用stack存放从root到leaf先后大于target的node
+用stack，我们可以根据当前第一个大于target的node，找第二个大于它的数字的node，即stack.push(node->right最左边的nodes)
+
+str.find('/', start)参数顺序不要写错!!!!不要写成str.find(start, '/')
+
+'A' + 2可能会错，要用char('A' + 2)
+
+BFS找最短路径学会逆向思维，可以从终点开始搜索
+
+注意isupper(ch)返回类型是int不是bool，所以不能比较两个return value
+
+DP有两种形式，一种是常见的for循环bottom-top型，一种是用DFS+Memorization的top-bottom型
+
+permutation注意swap之后得swap回来，不然会有大量重复
+
+Typical ways to solve circular array problems:
+1) The first typical way to solve circular array problems is to extend the original array to twice length, 2nd half has the same element as first half. Then everything become simple.
+2) The second way is to use a stack to facilitate the look up. First we put all indexes into the stack, smaller index on the top. Then we start from end of the array look for the first element (index) in the stack which is greater than the current one. That one is guaranteed to be the Next Greater Element. Then put the current element (index) into the stack.
+
+queue不能用{}初始化
+vector，list，unordered_set可以用{}初始化
+unordered_set<int> visited = {root};
+unordered_set<int> visited{root};
+
+https://leetcode.com/problems/minimum-height-trees/discuss/
+
+找左边右边第一个大于或小于它的数，可以用单调栈
+
+stream可以连续读，只要读不到东西了就会停止
+stringstream ss(str + ',');
+int num;
+char comma;
+while (ss >> num >> comma) {
+    ans.push_back(num);
+}
+
+stdin里面读string的时候，读取一行要用getline
+cin >> num1 >> num2;读完之后光标还在第一行，要再读一次getline结束第一行
+
+有些compiler初始化数组不能用= {}，直接bool dp[n + 1] = {0};
+
+recursion要注意mark visited positions之后是否需要undo回来
+
+class里面可以写class,sturct
+
+int directions[5] = {0, 1, 0, -1, 0};
+
+queue.push({pair.first, pair.second});
+
+unsigned int可以用size_t代替
+
+stoi的时候会忽略leading zeros
+
+accumulate实在numeric的库中
+
+Pointers: A pointer is a variable that holds memory address of another variable. A pointer needs to be dereferenced with * operator to access the memory location it points to.
+
+References : A reference variable is an alias, that is, another name for an already existing variable. A reference, like a pointer is also implemented by storing the address of an object.
+A reference can be thought of as a constant pointer (not to be confused with a pointer to a constant value!) with automatic indirection, i.e the compiler will apply the * operator for you.

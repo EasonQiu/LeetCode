@@ -1,0 +1,57 @@
+// http://blog.csdn.net/morewindows/article/details/7354571
+// https://leetcode.com/problems/sum-of-two-integers/#/solutions
+
+// signed int的符号位为0, unsigned int的符号位为1
+// 1 byte int的范围为: -128 ~ 127
+
+Eight-bit two's-complement integers
+  Bits	  Unsigned   Two's complement
+0111 1111	127 	   127 
+0111 1110	126    	   126 
+0000 0010	2 	       2 
+0000 0001	1 	       1 
+0000 0000	0 	       0 
+
+1111 1111	255    	   −1 
+1111 1110	254 	   −2 
+1000 0010	130 	   −126 
+1000 0001	129 	   −127 
+1000 0000	128 	   −128
+
+
+Set union A | B
+Set intersection A & B
+Set subtraction A & ~B
+Set negation ALL_BITS ^ A or ~A
+Set bit A |= 1 << bit
+Clear bit A &= ~(1 << bit)
+Test bit (A & 1 << bit) != 0
+Get all 1-bits ~0
+
+// Remove last bit:  eg. 11010 -> 11000
+i & (i - 1)
+
+// Extract last bit: eg. 11010 -> 00010
+i & -i
+i & (i ^ (i - 1))
+
+// 变换符号
+a = ~a + 1;
+
+// 交换两数
+// 0^a = a, 因为在异或操作中0表示不用变换数字，1表示要变换数字
+void Swap(int &a, int &b) {  
+  if (a != b) {  
+    a ^= b;  
+    b ^= a;  
+    a ^= b;  
+  }
+}
+
+// 求绝对值
+int my_abs(int a) {
+  return a >> 31 == 0 ? a : (~a + 1);  
+}
+
+// 在指定位子置1
+a |= 1 << n;
