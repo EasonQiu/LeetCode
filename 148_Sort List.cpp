@@ -12,34 +12,33 @@ class Solution {
 public:
     ListNode* sortList(ListNode* head) {
         if (!head || !head->next)  return head;
-        // find the node in the middle
-        // slow points to (left + right) / 2 + 1 node
-        ListNode *slow = head, *fast = head, *prev = NULL;
-        while (fast && fast->next) {
-        	prev = slow;
-        	slow = slow->next;  fast = fast->next->next;
+        // find the mid node
+        ListNode *slow = head, *fast = head;
+        while (fast->next && fast->next->next) {
+            fast = fast->next->next;  
+            slow = slow->next;
         }
-        prev->next = NULL;
-        // sort two half lists
-        ListNode *l1 = sortList(head);  
-        ListNode *l2 = sortList(slow);
-        // merge two half lists
+        fast = slow->next;  slow->next = NULL;
+        // sort half lists seperately
+        ListNode *l1 = sortList(head);
+        ListNode *l2 = sortList(fast);
+        // merge two sorted lists
         return merge(l1, l2);
     }
-
+    
     ListNode* merge(ListNode* l1, ListNode* l2) {
-    	ListNode *dummy = new ListNode(-1), *p = dummy;
-    	while (l1 && l2) {
-    		if (l1->val <= l2->val) {
-    			p->next = l1;  l1 = l1->next;
-    		} else {
-    			p->next = l2;  l2 = l2->next;
-    		}
-    		p = p->next;
-    	}
-    	if (l1)  p->next = l1;
-    	if (l2)  p->next = l2;
-    	return dummy->next;
+        ListNode* dummy = new ListNode(0);
+        ListNode* tail = dummy;
+        while (l1 && l2) {
+            if (l1->val <= l2->val) {
+                tail->next = l1;  l1 = l1->next;  tail = tail->next;
+            } else {
+                tail->next = l2;  l2 = l2->next;  tail = tail->next;
+            }
+        }
+        if (l1)  tail->next = l1;
+        if (l2)  tail->next = l2;
+        return dummy->next;
     }
 };
 

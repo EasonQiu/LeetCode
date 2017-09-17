@@ -2,6 +2,9 @@
 #include <vector>
 using namespace std;
 
+// 可以用2 bits来同时存储current和next的状态
+// 例如：10表示从dead到live
+
 class Solution {
 public:
     int numNeighbors(const vector<vector<int>>& board, int bi, int bj){

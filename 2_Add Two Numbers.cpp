@@ -6,6 +6,44 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}
 };
 
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        if (!l1 && !l2)  return NULL;
+        ListNode *dummy = new ListNode(0);
+        ListNode *curr = dummy;
+        ListNode *node1 = l1;
+        ListNode *node2 = l2;
+        int carry = 0;
+        while (node1 && node2) {
+            curr->next = new ListNode(node1->val + node2->val + carry);
+            node1 = node1->next;
+            node2 = node2->next;
+            curr = curr->next;
+            carry = curr->val / 10;
+            curr->val = curr->val % 10;
+        }
+        if (node1)  curr->next = node1;
+        if (node2)  curr->next = node2;
+        while (carry == 1 && curr->next) {
+            curr = curr->next;
+            curr->val += 1;
+            carry = curr->val / 10;
+            curr->val = curr->val % 10;
+        }
+        if (carry == 1)  curr->next = new ListNode(1);
+        return  dummy->next;
+    }
+};
+
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {

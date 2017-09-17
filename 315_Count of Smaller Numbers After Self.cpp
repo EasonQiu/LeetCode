@@ -5,42 +5,44 @@
 using namespace std;
 
 // https://discuss.leetcode.com/topic/31288/c-o-nlogn-time-o-n-space-mergesort-solution-with-detail-explanation
-class Solution2 { // merge sort
+class Solution { // sort成递减数列容易计算count
 public:
-    vector<int> countSmaller(vector<int>& nums) {
-    	temp.resize(nums.size()); index.resize(nums.size()), count.resize(nums.size());
-    	for (unsigned int i = 0; i < nums.size(); ++i)  index[i] = i;
-    	mergeSort(nums, 0, nums.size() - 1);
-    	return count;
+    vector<int> countSmaller(vector<int>& nums) { 
+        if (nums.empty())  return vector<int>();
+        vector<int> ix(nums.size());
+        for (int i = 0; i < nums.size(); ++i)  ix[i] = i;
+        temp = vector<int>(nums.size());
+        ans = vector<int>(nums.size());
+        mergeSort(nums, ix, 0, nums.size() - 1);
+        return ans;
     }
-
-    void mergeSort(vector<int>& nums, int left, int right) {
-    	if (left >= right)  return;
-    	int mid = left + (right - left) / 2;
-    	mergeSort(nums, left, mid);
-    	mergeSort(nums, mid + 1, right);
-        merge(nums, left, mid, right);
-    	return;
+    
+    void mergeSort(vector<int> &nums, vector<int> &ix, int left, int right) {
+        if (left >= right)  return;
+        int mid = left + (right - left) / 2;
+        mergeSort(nums, ix, left, mid);
+        mergeSort(nums, ix, mid + 1, right);
+        merge(nums, ix, left, mid, right);
     }
-
-    void merge(vector<int>& nums, int left, int mid, int right) {
-    	int i = left, j = mid + 1, k = left;
-    	while (i <= mid && j <= right) {
-    		if (nums[index[i]] <= nums[index[j]]) {
-    			temp[k++] = index[i++];
-    		} else {
-    			for (int w = i; w <= mid; ++w)  ++count[index[w]];
-    			temp[k++] = index[j++];
-    		}
-    	}
-    	while (i <= mid)   temp[k++] = index[i++];
-    	while (j <= right) temp[k++] = index[j++];
-    	for (k = left; k <= right; ++k)  index[k] = temp[k];
-    	return;
+    
+    void merge(vector<int> &nums, vector<int> &ix, int left, int mid, int right) {
+        int i = left, j = mid + 1, k = left;
+        while (i <= mid && j <= right) {
+            if (nums[ix[i]] > nums[ix[j]]) {
+                ans[ix[i]] += right - j + 1;
+                temp[k++] = ix[i++];
+            } else {
+                temp[k++] = ix[j++];
+            }
+        }
+        while (i <= mid)  temp[k++] = ix[i++];
+        while (j <= right)  temp[k++] = ix[j++];
+        for (int k = left; k <= right; ++k)  ix[k] = temp[k];
     }
 
 private:
-    vector<int> temp, index, count;
+    vector<int> temp;
+    vector<int> ans;
 };
 
 class Solution1 { // segment tree

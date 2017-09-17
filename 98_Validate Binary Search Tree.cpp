@@ -1,5 +1,7 @@
 #include <iostream>
 
+// 函数参数如果是pass by reference的形式，则外侧不能传入临时变量0或NULL
+
 struct TreeNode {
     int val;
     TreeNode *left;

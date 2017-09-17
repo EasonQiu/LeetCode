@@ -10,17 +10,14 @@ struct ListNode {
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        ListNode *iter1 = headA, *iter2 = headB;
-        while (iter1 != NULL && iter2 != NULL) {
-            if (iter1 == iter2) return iter1;
-            if (iter1->next == NULL && iter2->next == NULL) return NULL;
-            
-            if (iter1->next == NULL)  iter1 = headB;
-            else  iter1 = iter1->next;
-            if (iter2->next == NULL)  iter2 = headA;
-            else  iter2 = iter2->next;
+        if (!headA || !headB)  return NULL;
+        ListNode *node1 = headA;
+        ListNode *node2 = headB;
+        while (node1 != node2) {
+            node1 = (node1) ? node1->next : headB;
+            node2 = (node2) ? node2->next : headA;
         }
-        return NULL;
+        return node1;
     }
 };
 

@@ -8,18 +8,11 @@ using namespace std;
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
-        if ((nums.size() > 1) && (k > 0)){
-            k = k % nums.size();
-            if (k <= nums.size() / 2) {
-                int moveNums = k;
-                nums.insert(nums.begin(), nums.end() - moveNums, nums.end());
-                nums.erase(nums.end() - moveNums, nums.end());
-            }else {
-                int moveNums = nums.size() - k;
-                nums.insert(nums.end(), nums.begin(), nums.begin() + moveNums);
-                nums.erase(nums.begin(), nums.begin() + moveNums);
-            }
-        }
+        if (nums.empty())  return;
+        k = k % nums.size();
+        reverse(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.begin() + k);
+        reverse(nums.begin() + k, nums.end());
     }
 };
 

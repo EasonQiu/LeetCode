@@ -5,34 +5,38 @@ using namespace std;
 
 class MinStack {
 public:
-    MinStack() {
-        myMin.push(INT_MAX);
-    }
+    /** initialize your data structure here. */
+    MinStack() {}
     
     void push(int x) {
-        myStack.push(x);
-        int top = myMin.top();
-        if (top <= x)  myMin.push(top);
-        else  myMin.push(x);
+        if (x <= min) {
+            mystack.push(min);
+            min = x;
+        }
+        mystack.push(x);
     }
     
     void pop() {
-        myStack.pop();
-        myMin.pop();
+        if (mystack.top() == min)  {
+            mystack.pop();
+            min = mystack.top();
+        }
+        mystack.pop();
     }
     
     int top() {
-        return myStack.top();
+        return mystack.top();
     }
     
     int getMin() {
-        return myMin.top();
+        return min;
     }
 
 private:
-	stack<int> myStack;
-	stack<int> myMin;
+    int min = INT_MAX;
+    stack<int> mystack;
 };
+
 
 int main() {
 	MinStack minStack = new MinStack();

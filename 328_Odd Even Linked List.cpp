@@ -1,3 +1,11 @@
+// Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
+
+// You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
+
+// Example:
+// Given 1->2->3->4->5->NULL,
+// return 1->3->5->2->4->NULL.
+
 #include <iostream>
 
 // Definition for singly-linked list.
@@ -7,51 +15,25 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}
 };
 
+
 class Solution {
-public:
-    ListNode* oddEvenList(ListNode* head) {
-        if (head == NULL) {
-            return head;
-        }else if (head->next == NULL) {
-            return head;
-        }else if (head->next->next == NULL) {
-            return head;
-        }
-    
-        ListNode* oddhead  = head;
-        ListNode* evenhead = head->next;
-        ListNode* odditr  = head;
-        ListNode* evenitr = head->next;
-        ListNode* tmpptr  = head->next->next;
-        
-        while (tmpptr != NULL){
-            odditr->next = tmpptr;  odditr = odditr->next;
-            
-            if (tmpptr->next == NULL) {
-                odditr->next = evenhead;  evenitr->next = NULL;
-                break;
-            }else {
-                tmpptr = tmpptr->next;
-                evenitr->next = tmpptr;  evenitr = evenitr->next;
-            }
-            
-            if (tmpptr->next == NULL) {
-                odditr->next = evenhead;  evenitr->next = NULL;
-                break;
-            }else {
-                tmpptr = tmpptr->next;
-            }
-        }
-        
-//        tmpptr = head;
-//        while (tmpptr != NULL) {
-//            std::cout << tmpptr->val << " ";
-//            tmpptr = tmpptr->next;
-//        }
-        
-        return oddhead;
+ public:
+  ListNode* oddEvenList(ListNode* head) {
+    if (!head || !head->next)  return head;
+    ListNode *head_even = head->next;
+    ListNode *odd = head;
+    ListNode *even = head->next;
+    while (even && even->next) {
+      odd->next = even->next;
+      odd = even->next;
+      even->next = odd->next;
+      even = odd->next;
     }
+    odd->next = head_even;
+    return head;
+  }
 };
+
 
 int main() {
     ListNode* a = new ListNode(1);

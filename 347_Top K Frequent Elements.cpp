@@ -1,11 +1,35 @@
+// Given a non-empty array of integers, return the k most frequent elements.
+
+// For example,
+// Given [1,1,1,2,2,3] and k = 2, return [1,2].
+
 #include <iostream>
-#include <priority_queue>
+#include <queue>
 #include <vector>
+#include <unordered_map>
+#include <map>
 using namespace std;
 
 class Solution {
 public:
-	vector<int> topKFrequent(vector<int>& nums, int k) { // tree
+    vector<int> topKFrequent(vector<int>& nums, int k) { // queue
+        vector<int> ans;
+        // build hashmap to count the numbers
+        unordered_map<int, int> counts;  // <number, count>
+        for (int num : nums)  ++counts[num];
+        // find the heap for frequency
+        priority_queue<pair<int, int> > frequent;  // <count, number>
+        for (auto& pair : counts)  frequent.push(make_pair(pair.second, pair.first));
+        // get the top k elements
+        while (--k >= 0) {
+            ans.push_back(frequent.top().second);
+            frequent.pop();
+        }
+        // final result
+        return ans;
+    }
+
+	vector<int> topKFrequent1(vector<int>& nums, int k) { // tree
         vector<int> answer;
         // build map to count frequency
         unordered_map<int, int> numCount; // <num, frequency>
@@ -51,6 +75,6 @@ int main() {
 	vector<int> nums(arr, arr+6);
 	Solution s;
 	vector<int> ans = s.topKFrequent(nums, 2);
-	for (int num : nums)  cout << num << " ";
+	for (int num : ans)  cout << num << " ";
 	return 0;
 }

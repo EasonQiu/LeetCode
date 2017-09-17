@@ -14,19 +14,18 @@ struct TreeNode {
 class Solution {
 public:
     int kthSmallest(TreeNode* root, int k) {
-        if(!root || k <= 0) return INT_MIN;
-        stack<TreeNode*> my_stack;
-        while(root || !my_stack.empty()){
-            if(root){
-                my_stack.push(root);
-                root = root->left;
-            } else {
-                root = my_stack.top();  my_stack.pop();
-                if(--k == 0) return root->val;
-                root = root->right;
-            }
+        int nums = count(root->left);
+        if (nums >= k) {
+            return kthSmallest(root->left, k);
+        } else if (nums + 1 < k) {
+            return kthSmallest(root->right, k - nums - 1);
         }
-        return INT_MIN;
+        return root->val;
+    }
+    
+    int count(TreeNode* node) {
+        if (!node)  return 0;
+        return 1 + count(node->left) + count(node->right);
     }
 };
 

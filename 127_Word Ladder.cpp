@@ -5,47 +5,53 @@
 #include <queue>
 using namespace std;
 
-class Solution { // version 2, two way bfs, beats 84.60%
+// Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation sequence from beginWord to endWord, such that:
+
+// Only one letter can be changed at a time.
+// Each transformed word must exist in the word list. Note that beginWord is not a transformed word.
+// For example,
+
+// Given:
+// beginWord = "hit"
+// endWord = "cog"
+// wordList = ["hot","dot","dog","lot","log","cog"]
+// As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog",
+// return its length 5.
+
+// Note:
+// Return 0 if there is no such transformation sequence.
+// All words have the same length.
+// All words contain only lowercase alphabetic characters.
+// You may assume no duplicates in the word list.
+// You may assume beginWord and endWord are non-empty and are not the same.
+
+class Solution {  // version 2, two way BFS, 98%
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
-        if (wordList.size() <= 1)  return 0;
-        // init the hashset
-        unordered_set<string> unexplored(wordList.size());
-        for (string str : wordList)  unexplored.insert(str);
-        // check corner cases
-        if (unexplored.find(endWord) == unexplored.end())  return 0;
-        // init two queues for two way BFS
-        unordered_set<string> queue1, queue2, *set1, *set2;
-        queue1.insert(beginWord);  unexplored.erase(beginWord);
-    	queue2.insert(endWord);    unexplored.erase(endWord);
-        // two way BFS
-        int length = 2;
-        while (!queue1.empty() && !queue2.empty()) {
-        	// choose the smaller one to BFS
-        	if (queue1.size() <= queue2.size()) {
-        		set1 = &queue1;  set2 = &queue2;
-        	} else {
-        		set1 = &queue2;  set2 = &queue1;
-        	}
-        	// create the next level of words
-        	unordered_set<string> temp(set1->size());
-        	for (string word : *set1) {
-        		for (int m = 0; m < word.size(); ++m) {
-        			char oriCh = word[m];
-        			for (char ch = 'a'; ch <= 'z'; ++ch) {
-        				if (ch == oriCh)  continue;
-        				word[m] = ch;
-        				if (set2->find(word) != set2->end()) {
-        					return length;
-        				} else if (unexplored.find(word) != unexplored.end()) {
-        					unexplored.erase(word);
-        					temp.insert(word);
-        				}
-        				word[m] = oriCh;
-        			}
-        		}
-        	}
-        	swap(*set1, temp);  ++length;
+        unordered_set<string> dict(wordList.begin(), wordList.end());
+        if (dict.find(endWord) == dict.end())  return 0;  // corner case
+        unordered_set<string> set1 = {beginWord};
+        unordered_set<string> set2 = {endWord};
+        int len = 1;
+        while (!set1.empty() && !set2.empty()) {
+            ++len;
+            if (set1.size() > set2.size())  swap(set1, set2);
+            unordered_set<string> next_set;
+            for (string curr : set1) {
+                for (int i = 0; i < curr.size(); ++i) {
+                    char ori_ch = curr[i];
+                    for (char ch = 'a';  ch <= 'z'; ++ch) {
+                        if (ch == ori_ch)  continue;
+                        curr[i] = ch;
+                        if (set2.count(curr))  return len;
+                        if (!dict.count(curr))  continue;
+                        next_set.insert(curr);
+                        dict.erase(curr);
+                    }
+                    curr[i] = ori_ch;
+                }
+            }
+            swap(set1, next_set);
         }
         return 0;
     }

@@ -9,6 +9,8 @@ b) Delete a character
 c) Replace a character
 */
 
+// 本题的关键是送word1转换到word2，和word2转换到word1的步数相同。
+// 如果同时改动两个word很难考虑，可以固定一个word2，只改动word1！
 class Solution {
 public:
     int minDistance(string word1, string word2) {

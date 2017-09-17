@@ -1,3 +1,6 @@
+// Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -8,40 +11,70 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}
 };
 
+// custom priority queue
+// 如果想把lhs放在heap后面，就return true
+class comparator {
+ public:
+  bool operator() (const ListNode *lhs, const ListNode *rhs) {
+    return lhs->val > rhs->val;
+  }
+};
+
 class Solution {
 public:
-    ListNode* mergeKLists(vector<ListNode*>& lists) {
-        if (lists.size() == 0)  return nullptr;
-        int len = lists.size();
-        while (len > 1) {
-            int num = len / 2;
-            len = (len + 1) / 2;
-            for (int i = 0; i < num; ++i) {
-                MergeList(lists[i], lists[i + len]);
-            }
-        }
-        return lists[0];
+  ListNode* mergeKLists(vector<ListNode*>& lists) {
+    if (lists.empty())  return NULL;
+    priority_queue<ListNode*, vector<ListNode*>, comparator> pq;
+    // input the first element in each list
+    for (int i = 0; i < lists.size(); ++i) {
+      if (lists[i])  pq.push(lists[i]);
     }
-    
-    void MergeList(ListNode* &head1, ListNode* &head2) {
-        ListNode *dummy = new ListNode(-1);
-        ListNode *cur = dummy;
-        while (head1 && head2) {
-            if (head1->val < head2->val) {
-                cur->next = head1;
-                head1 = head1->next;
-            } else {
-                cur->next = head2;
-                head2 = head2->next;
-            }
-            cur = cur->next;
-        }
-        if (head1)  cur->next = head1;
-        else if (head2)  cur->next = head2;
-        
-        cur = dummy;  head1 = dummy->next;
-        delete cur;
+    // get nodes from priority queue
+    ListNode *dummy = new ListNode(0);
+    ListNode *curr = dummy, *top;
+    while (!pq.empty()) {
+      top = pq.top();  pq.pop();
+      curr->next = top;  curr = curr->next;
+      if (top->next)  pq.push(top->next);
     }
+    // final result
+    return dummy->next;
+  }
+};
+
+// merge two lists, O(nlog(k))
+class Solution {
+public:
+  ListNode* mergeKLists(vector<ListNode*>& lists) {
+    if (lists.empty())  return NULL;
+    int k = lists.size();
+    while (k > 1) {
+        int mid = (k - 1) / 2;
+        for (int i = 0; i <= mid; ++i) {
+            lists[i] = mergeTwoLists(lists[i], lists[k - 1 - i]);
+        }
+        k = mid + 1;
+    }
+    return lists[0];
+  }
+
+  ListNode* mergeTwoLists(ListNode *head1, ListNode *head2) {
+    if (head1 == head2)  return head1;
+    ListNode *dummy = new ListNode(0);
+    ListNode *node1 = head1, *node2 = head2, *curr = dummy;
+    while (node1 && node2) {
+        if (node1->val <= node2->val) {
+            curr->next = node1;
+            node1 = node1->next;  curr = curr->next;
+        } else {
+            curr->next = node2;
+            node2 = node2->next;  curr = curr->next;
+        }
+    }
+    if (node1)  curr->next = node1;  
+    if (node2)  curr->next = node2;
+    return dummy->next;
+  } 
 };
 
 int main() {

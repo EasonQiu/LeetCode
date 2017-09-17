@@ -8,7 +8,7 @@ using namespace std;
 // 另外一种解法，转换为graph。变成找graph中最长的path，即每次删除出度为0的点。
 // http://www.allenlipeng47.com/blog/index.php/2016/01/22/longest-increasing-path-in-a-matrix/
 
-class Solution {  // beats 73.59%
+class Solution {  // beats 91.27%
 public:
     int longestIncreasingPath(vector<vector<int>>& matrix) {
         if (matrix.size() == 0 || matrix[0].size() == 0)  return 0;

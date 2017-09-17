@@ -12,6 +12,38 @@ struct TreeNode {
 };
 
 class Solution {
+ public:
+  TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+    if (preorder.empty() || inorder.empty())  return NULL;
+    return build(preorder, inorder, 0, preorder.size() - 1, 0, inorder.size() - 1);
+  }
+
+  TreeNode* build(vector<int> &preorder, vector<int> &inorder, int l1, int r1, int l2, int r2) {
+    if (l1 > r1)  return NULL;
+    TreeNode *node = new TreeNode(preorder[l1]);
+    int j = find(inorder.begin() + l2, inorder.end(), preorder[l1]) - inorder.begin();
+    int len = j - l2 + 1;
+    node->left = build(preorder, inorder, l1 + 1, l1 + len - 1, l2, j - 1);
+    node->right = build(preorder, inorder, l1 + len, r1, j + 1, r2);
+    return node;
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Solution {
 public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         if (preorder.size() == 0) return NULL;

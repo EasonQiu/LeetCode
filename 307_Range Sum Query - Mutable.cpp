@@ -3,71 +3,103 @@
 #include <cmath>
 using namespace std;
 
-class MyTreeNode {
-public:
-	int start, end, sum;
-	MyTreeNode *left, *right;
-	MyTreeNode(int s, int e, int m = 0) {
-		start = s;  end = e;  sum = m;
-		left = right = NULL;
-	}
-};
-
-class NumArray {
+class NumArray { // binary indexed tree
 public:
     NumArray(vector<int> nums) {
-        root = builder(nums, 0, nums.size() - 1);
+        vals = nums;
+        tree = vector<int>(nums.size() + 1);
+        for (int i = 1; i < tree.size(); ++i) {
+            int lowbit = i & -i;
+            for (int j = i; j > i - lowbit; --j) {
+                tree[i] += nums[j - 1];
+            }
+        }
     }
     
     void update(int i, int val) {
-        modify(root, i, val);
+        int diff = val - vals[i];
+        vals[i] = val;
+        for (++i; i < tree.size(); i += i & -i) {
+            tree[i] += diff;
+        }
     }
     
     int sumRange(int i, int j) {
-        return query(root, i, j);
+        int sum1 = 0, sum2 = 0;
+        while (i) {
+            sum1 += tree[i];
+            i -= i & -i;
+        }
+        ++j;
+        while (j) {
+            sum2 += tree[j];
+            j -= j & -j;
+        }
+        return sum2 - sum1;
+    }
+    
+private:
+    vector<int> tree, vals;
+};
+
+
+class NumArray { // segment tree
+public:
+    NumArray(vector<int> nums) {
+        size = nums.size();
+        if (size == 0)  return;
+        number = nums;
+        int tree_size = 2 * pow(2, ceil(log(size) / log(2))) + 1;
+        tree = vector<int>(tree_size);
+        construct(nums, 0, 0, size - 1);
+    }
+    
+    void update(int i, int val) {
+        if (size == 0)  return;
+        int diff = val - number[i];
+        number[i] = val;
+        int left = 0, right = size - 1, node = 0;
+        while (left < right) {
+            tree[node] += diff;
+            int mid = left + (right - left) / 2;
+            if (i <= mid) {
+                right = mid;
+                node = 2 * node + 1;
+            } else {
+                left = mid + 1;
+                node = 2 * node + 2;
+            }
+        }
+        tree[node] += diff;
+    }
+    
+    int sumRange(int i, int j) {
+        return query(0, 0, size - 1, i, j);
     }
 
 private:
-	MyTreeNode *root;
-
-	MyTreeNode* builder(vector<int> const& nums, int start, int end) {
-		if (start > end)  return NULL;
-		if (start == end)  return new MyTreeNode(start, end, nums[start]);
-
-		MyTreeNode* node = new MyTreeNode(start, end);
-		int mid = start + (end - start) / 2;
-		node->left  = builder(nums, start, mid);
-		node->right = builder(nums, mid + 1, end);
-		node->sum = node->left->sum + node->right->sum;
-		
-		return node;
-	}
-
-	int modify(MyTreeNode* node, int i, int val) {
-		if (!node)  return 0;
-		int diff;
-		if (node->start == i && node->end == i) {
-			diff = val - node->sum;
-			node->sum = val;
-			return diff;
-		}
-
-		int mid = node->start + (node->end - node->start) / 2;
-		if (i <= mid)  diff = modify(node->left, i, val);
-		else diff = modify(node->right, i, val);
-		node->sum += diff;
-		return diff;
-	}
-
-	int query(MyTreeNode* node, int i, int j) {
-		if (!node)  return 0;
-		if (node->start == i && node->end == j)  return node->sum;
-
-		int mid = node->start + (node->end - node->start) / 2;
-		if (j <= mid)  return query(node->left, i, j);
-		else if (mid + 1 <= i)  return query(node->right, i, j);
-		else  return query(node->left, i, mid) + query(node->right, mid + 1, j);
-	}
+    int size;
+    vector<int> number;
+    vector<int> tree;
+    
+    int construct(vector<int> &nums, int node, int left, int right) {
+        if (left == right) {
+            tree[node] = nums[left];
+            return tree[node];
+        }
+        int mid = left + (right - left) / 2;
+        tree[node] = construct(nums, 2 * node + 1, left, mid) + 
+                     construct(nums, 2 * node + 2, mid + 1, right);
+        return tree[node];
+    }
+    
+    int query(int node, int left, int right, int bound1, int bound2) {
+        if (bound1 > right || bound2 < left)  return 0;
+        if (bound1 <= left && bound2 >= right)  return tree[node];
+        int mid = left + (right - left) / 2;
+        return query(2 * node + 1, left, mid, bound1, bound2) + 
+               query(2 * node + 2, mid + 1, right, bound1, bound2);
+    }
 };
 
 int main() {

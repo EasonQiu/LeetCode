@@ -12,23 +12,30 @@ struct Interval {
     Interval(int s, int e) : start(s), end(e) {}
 };
 
+struct comparator {
+  bool operator() (const Interval &lhs, const Interval &rhs) {
+    return lhs.start < rhs.start;
+  }
+};
+
 class Solution {
 public:
-    vector<Interval> merge(vector<Interval>& intervals) {
-        if (intervals.empty())  return vector<Interval>();
-        vector<Interval> ans;
-        sort(intervals.begin(), intervals.end(), [](Interval a, Interval b){ return a.start < b.start; });
-        ans.push_back(intervals[0]);
-        for (unsigned int i = 1; i < intervals.size(); ++i) {
-        	if (intervals[i].start <= ans.back().end) {
-        		ans.back().end = max(ans.back().end, intervals[i].end);
-        	} else {
-        		ans.push_back(intervals[i]);
-        	}
-        }
-        return ans;
+  vector<Interval> merge(vector<Interval>& intervals) {
+    if (intervals.empty())  return vector<Interval>();
+    sort(intervals.begin(), intervals.end(), comparator());
+    vector<Interval> ans;
+    ans.push_back(intervals[0]);
+    for (int i = 1; i < intervals.size(); ++i) {
+      if (intervals[i].start <= ans.back().end) {
+        ans.back().end = max(ans.back().end, intervals[i].end);
+      } else {
+        ans.push_back(intervals[i]);
+      }
     }
+    return ans;
+  }
 };
+
 
 int main() {
 	Interval i1(1, 3), i2(2, 6), i3(8, 10), i4(15, 18);

@@ -3,8 +3,31 @@
 #include <string>
 using namespace std;
 
-// https://discuss.leetcode.com/topic/33467/c-4ms-with-explanation-o-n-log-n-time
+// leetcode上面sort没法用得小心可以自己写一个
+bool comparator (string &lhs, string &rhs) {
+    return lhs + rhs >= rhs + lhs;
+}
+
 class Solution {
+public:
+    string largestNumber(vector<int>& nums) {
+        if (nums.empty())  return "";
+        // sort the numbers in the array
+        vector<string> number(nums.size());
+        for (int i = 0; i < nums.size(); ++i)  number[i] = to_string(nums[i]);
+        sort(number.begin(), number.end(), comparator);
+        // concatenate
+        string ans = "";
+        for (string &val : number)  ans += val;
+        // find fisrt non-0 position
+        int pos = 0;
+        while (pos < ans.size() && ans[pos] == '0')  ++pos;
+        return pos == ans.size() ? "0" : ans.substr(pos);
+    }
+};
+
+// https://discuss.leetcode.com/topic/33467/c-4ms-with-explanation-o-n-log-n-time
+class Solution2 {
 public:
     string largestNumber(vector<int>& nums) {
     	if (nums.size() == 0)  return "";

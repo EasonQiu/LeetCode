@@ -9,27 +9,29 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
-        if (head == NULL) return NULL;
-        ListNode *dummy = new ListNode(0);   dummy->next = head;
-        // find the (N+1)th node from End of list
-        ListNode *slow = dummy, *fast = dummy;
-        while (n-- >= 1){
-            fast = fast->next;
-        }
-        while (fast->next != NULL) {
-            fast = fast->next;  slow = slow->next;
-        }
-        // delete Nth node from End of list
-        fast = slow->next;
-        slow->next = fast->next;
-        delete fast;
-        // delete dummy node
-        head = dummy->next;
-        delete dummy;
-        
-        return head;
+  ListNode* removeNthFromEnd(ListNode* head, int n) {
+    if (n == 0) {
+      return head;
     }
+    ListNode *dummy = new ListNode(0);
+    dummy->next = head;
+    ListNode *slow = dummy;
+    ListNode *fast = dummy;
+    for (int i = 0; i < n; ++i) {
+      fast = fast->next;
+    }
+    while (fast->next) {
+      if (fast->next->next) {
+        fast = fast->next->next;
+        slow = slow->next->next;
+      } else {
+        fast = fast->next;
+        slow = slow->next;
+      }
+    }
+    slow->next = slow->next->next;
+    return dummy->next;
+  }
 };
 
 int main() {

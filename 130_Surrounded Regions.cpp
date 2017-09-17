@@ -1,10 +1,67 @@
+// Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'.
+// A region is captured by flipping all 'O's into 'X's in that surrounded region.
+
+// For example,
+// X X X X
+// X O O X
+// X X O X
+// X O X X
+// After running your function, the board should be:
+// X X X X
+// X X X X
+// X X X X
+// X O X X
+
+// 解法：思路是将所有在边上的O，全部链接到一个同一个dummy root下。然后，每次都将
+// O与它相邻的O点Union一下。最后遍历所有节点之后，所有与dummy root相连的点
+// 为最终图中含有的O点。
+
 #include <iostream>
 #include <vector>
-#include <queue>
-#include <map>
 using namespace std;
 
 class Solution {
+public:
+  void solve(vector<vector<char>>& board) {
+    if (board.size() == 0 || board[0].size() == 0)  return;
+    int row = board.size(), col = board[0].size();
+    // init the root array, set itself as its root
+    parent = new int[row * col + 1];
+    for (int i = 0; i < row * col + 1; ++i)  parent[i] = i;
+    // union the O regions with their neighbors
+    for (int i = 0; i < row; ++i) {
+      for (int j = 0; j < col; ++j) {
+        if (board[i][j] == 'X')  continue;
+        if (i == 0 || i == row - 1 || j == 0 || j == col - 1)  unions(i * col + j, row * col);
+        if (i + 1 < row && board[i + 1][j] == 'O')  unions(i * col + j, (i + 1) * col + j);
+        if (j + 1 < col && board[i][j + 1] == 'O')  unions(i * col + j, i * col + (j + 1));
+      }
+    }
+    // modify the regions that are surrounded by X
+    for (int i = 0; i < row; ++i) {
+      for (int j = 0; j < col; ++j) {
+        if (find(i * col + j) != find(row * col))  board[i][j] = 'X';
+      }
+    }
+  }
+
+  void unions(int index1, int index2) {
+    parent[find(index1)] = find(index2);
+  }
+
+  int find(int index) {
+    while (parent[index] != index) {
+      parent[index] = parent[parent[index]];
+      index = parent[index];
+    }
+    return index;
+  }
+
+private:
+  int *parent;
+};
+
+class Solution2 { // dfs
 public:
     void solve(vector<vector<char>>& board) {
     	int row, col;
@@ -75,14 +132,19 @@ public:
 };
 
 int main() {
-	vector<vector<char> > board(4, vector<char>(4, 'X'));
-	board[1][1] = board[1][2] = board[2][2] = board[3][1] = 'O';
+	vector<vector<char> > board(5, vector<char>(5, 'X'));
+	board[0][0] = board[0][3] = board[1][1] = board[1][2] = 'O';
+	board[1][4] = board[2][1] = board[2][3] = board[3][0] = 'O';
+	board[3][2] = board[3][3] = board[3][4] = board[4][2] = 'O';
+	board[4][4] = 'O';
 
 	Solution s;
 	s.solve(board);
 
-	for (auto row : board) {
-		for (char ch : row)  cout << ch << " ";
+	for (int i = 0; i < 5; ++i) {
+		for (int j = 0; j < 5; ++j) {
+			cout << board[i][j];
+		}
 		cout << endl;
 	}
 	return 0;

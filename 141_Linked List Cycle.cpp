@@ -10,14 +10,27 @@ struct ListNode {
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        if (head == NULL || head->next == NULL) return false;
-        ListNode *mark = new ListNode(0);
-        ListNode *iter1 = head, *tmp;
-        while (iter1->next != NULL) {
-            if (iter1->next == mark)  return true;
-            tmp = iter1->next;
-            iter1->next = mark;
-            iter1 = tmp;
+        if (!head)  return false;
+        ListNode *slow = head;
+        ListNode *fast = head;
+        do {
+            if (!fast->next || !fast->next->next)  return false;
+            fast = fast->next->next;
+            slow = slow->next;
+        } while (slow != fast);
+        return true;
+    }
+};
+
+class Solution2 {
+public:
+    bool hasCycle(ListNode *head) {
+        if (!head || !head->next)  return false;
+        ListNode *slow = head, *fast = head;
+        while (fast->next && fast->next->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast)  return true;
         }
         return false;
     }
